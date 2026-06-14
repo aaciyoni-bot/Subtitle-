@@ -1,39 +1,31 @@
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhoneScreen AI - פתקית ראיון טלפוני</title>
     
-    <!-- טעינת Tailwind CSS לעיצוב -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- טעינת אייקונים (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- טעינת React -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     
-    <!-- טעינת Babel (כדי שהדפדפן יבין קוד React) -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="bg-slate-50 font-sans font-normal text-right">
     
-    <!-- כאן האפליקציה תרוץ -->
     <div id="root"></div>
 
     <script type="text/babel">
         const { useState } = React;
 
         function App() {
-          // ניהול מצב המסכים באפליקציה
           const [currentScreen, setCurrentScreen] = useState('dashboard');
-          // ניהול מצב המועמד (האם מילא את השאלון או לא)
           const [candidateCompleted, setCandidateCompleted] = useState(false);
-          // ניהול מצב תצוגת פרטי משרה
           const [showJobDetails, setShowJobDetails] = useState(false);
 
-          // פונקציות ניווט
           const navigate = (screen) => setCurrentScreen(screen);
 
           // --- מסך 1: דשבורד מגייס ---
@@ -59,12 +51,16 @@
               <h2 className="text-xl font-semibold mb-4 text-gray-800">משרות פעילות</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* כרטיס משרה 1 */}
+                
+                {/* כרטיס משרה 1 - משרת הדמו המקורית */}
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
                   <div className="h-2 bg-emerald-800 w-full"></div>
                   <div className="p-5">
                     <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-xl font-bold text-gray-800">רכז/ת גיוס</h3>
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-800">רכז/ת גיוס</h3>
+                        <p className="text-sm text-gray-500 mt-1">חברת שירותים • מטה החברה</p>
+                      </div>
                       <span className="bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-full font-medium border border-emerald-200">
                         פעילה
                       </span>
@@ -97,14 +93,93 @@
                   </div>
                 </div>
 
-                {/* כרטיס משרה 2 */}
-                <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow opacity-70">
+                {/* כרטיס משרה 2 - מנהל אזור אבטחה */}
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+                  <div className="h-2 bg-blue-600 w-full"></div>
+                  <div className="p-5">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-800">מנהל/ת אזור</h3>
+                        <p className="text-sm text-gray-500 mt-1">חברת אבטחה • תל אביב</p>
+                      </div>
+                      <span className="bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-full font-medium border border-emerald-200">
+                        פעילה
+                      </span>
+                    </div>
+                    
+                    <div className="space-y-3 mb-6">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-600 flex items-center gap-2">
+                          <i className="fas fa-users"></i> מועמדים חדשים:
+                        </span>
+                        <span className="font-bold text-gray-800">0</span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-600 flex items-center gap-2">
+                          <i className="fas fa-money-bill-wave"></i> שכר ותנאים:
+                        </span>
+                        <span className="text-gray-800 text-xs">10,000 ₪ + רכב צמוד</span>
+                      </div>
+                    </div>
+
+                    <button 
+                      onClick={() => navigate('jobCandidates')}
+                      className="w-full border border-gray-300 text-gray-600 hover:bg-gray-50 py-2 rounded-lg font-medium transition-colors"
+                    >
+                      כניסה למשרה
+                    </button>
+                  </div>
+                </div>
+
+                {/* כרטיס משרה 3 - בק אופיס נכסים */}
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+                  <div className="h-2 bg-indigo-500 w-full"></div>
+                  <div className="p-5">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-800">בק אופיס</h3>
+                        <p className="text-sm text-gray-500 mt-1">ניהול נכסים • רמת גן</p>
+                      </div>
+                      <span className="bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-full font-medium border border-emerald-200">
+                        פעילה
+                      </span>
+                    </div>
+                    
+                    <div className="space-y-3 mb-6">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-600 flex items-center gap-2">
+                          <i className="fas fa-users"></i> מועמדים חדשים:
+                        </span>
+                        <span className="font-bold text-gray-800">0</span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-600 flex items-center gap-2">
+                          <i className="fas fa-money-bill-wave"></i> שכר מוצע:
+                        </span>
+                        <span className="text-gray-800 text-xs">9,000 ₪</span>
+                      </div>
+                    </div>
+
+                    <button 
+                      onClick={() => navigate('jobCandidates')}
+                      className="w-full border border-gray-300 text-gray-600 hover:bg-gray-50 py-2 rounded-lg font-medium transition-colors"
+                    >
+                      כניסה למשרה
+                    </button>
+                  </div>
+                </div>
+
+                {/* כרטיס משרה 4 - מושעית (בשביל הגיוון ויזואלית) */}
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow opacity-60">
                   <div className="h-2 bg-gray-400 w-full"></div>
                   <div className="p-5">
                     <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-xl font-bold text-gray-800">מנהל/ת תפעול</h3>
+                      <div>
+                        <h3 className="text-xl font-bold text-gray-800">מנהל/ת תפעול</h3>
+                        <p className="text-sm text-gray-500 mt-1">ארגון שירות</p>
+                      </div>
                       <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full font-medium border border-gray-200">
-                        פעילה
+                        מוקפאת
                       </span>
                     </div>
                     
@@ -124,10 +199,11 @@
                     </div>
 
                     <button className="w-full bg-gray-50 text-gray-400 py-2 rounded-lg font-medium cursor-not-allowed">
-                      אין מועמדים
+                      אין גישה
                     </button>
                   </div>
                 </div>
+
               </div>
             </div>
           );
@@ -147,25 +223,25 @@
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">שם המשרה</label>
-                  <input type="text" defaultValue="רכז/ת גיוס" className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-emerald-500 outline-none" />
+                  <input type="text" defaultValue="מנהל/ת אזור" className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-emerald-500 outline-none" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">תיאור הארגון</label>
-                  <textarea rows="2" defaultValue="חברה בינונית בתחום השירותים." className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-emerald-500 outline-none"></textarea>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">תיאור הארגון ותנאים</label>
+                  <textarea rows="2" defaultValue="חברת אבטחה, תל אביב. 10,000 ש״ח + רכב צמוד. משרה מלאה 07:00-16:00." className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-emerald-500 outline-none"></textarea>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">דרישות חובה</label>
-                    <textarea rows="3" defaultValue="ניסיון בגיוס עובדים, יכולת עבודה מול מנהלים, סדר ומעקב." className="w-full border border-gray-300 rounded-lg p-2.5 text-sm outline-none"></textarea>
+                    <textarea rows="3" defaultValue="ניסיון מוכח בניהול בחברת אבטחה, רישיון רכב, רישיון נשק ארגוני, זמינות 24/7 (כוננות)." className="w-full border border-gray-300 rounded-lg p-2.5 text-sm outline-none"></textarea>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">דרישות יתרון</label>
-                    <textarea rows="3" defaultValue="ניסיון במערכת ATS, גיוסי מאסה, רשתות חברתיות." className="w-full border border-gray-300 rounded-lg p-2.5 text-sm outline-none"></textarea>
+                    <textarea rows="3" defaultValue="יוצאי יחידות קרביות, ניסיון בניהול מערכי אבטחה גדולים." className="w-full border border-gray-300 rounded-lg p-2.5 text-sm outline-none"></textarea>
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">שאלות קבועות למועמד שישולבו בשאלון</label>
-                  <textarea rows="3" defaultValue="תאר ניסיון קודם בגיוס. איך אתה מתמודד עם עומס של מועמדים?" className="w-full border border-gray-300 rounded-lg p-2.5 outline-none"></textarea>
+                  <textarea rows="3" defaultValue="תאר אירוע שבו הוקפצת באמצע הלילה וכיצד טיפלת בו." className="w-full border border-gray-300 rounded-lg p-2.5 outline-none"></textarea>
                 </div>
                 
                 <div className="pt-4 border-t mt-6 flex justify-end gap-3">
@@ -213,16 +289,8 @@
                   <input type="text" defaultValue="מיידית" className="w-full border border-gray-300 rounded-lg p-2.5" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">ציפיות שכר</label>
-                  <input type="text" defaultValue="8,500-9,000 ש״ח" className="w-full border border-gray-300 rounded-lg p-2.5" />
-                </div>
-                <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">למה התפקיד מעניין אותך?</label>
-                  <textarea rows="2" defaultValue="אני רוצה להתפתח בעולם הגיוס ומשאבי האנוש ולעבוד מול אנשים ומנהלים." className="w-full border border-gray-300 rounded-lg p-2.5 text-sm"></textarea>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">איך אתה מתמודד עם עומס של מועמדים? (שאלה מקצועית)</label>
-                  <textarea rows="2" defaultValue="אני עובדת עם רשימות מסודרות, תיעדוף לפי דחיפות המשרה, ומעקב יומי אחרי סטטוס מועמדים." className="w-full border border-gray-300 rounded-lg p-2.5 text-sm"></textarea>
+                  <textarea rows="2" defaultValue="מעוניין להשתלב ולצמוח בארגון, מתחבר לעבודה מול אנשים ואחריות." className="w-full border border-gray-300 rounded-lg p-2.5 text-sm"></textarea>
                 </div>
 
                 <button 
@@ -251,7 +319,6 @@
               </p>
               
               <div className="border-t pt-6 mt-6">
-                <p className="text-xs text-gray-400 mb-4">(כפתור זה מיועד לצורך ההדגמה בלבד)</p>
                 <button 
                   onClick={() => navigate('dashboard')}
                   className="text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-6 py-2 rounded-lg font-medium transition-colors text-sm"
@@ -271,7 +338,7 @@
 
               <div className="flex justify-between items-center mb-6">
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-800">ניהול מועמדים: רכז/ת גיוס</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">ניהול מועמדים למשרה</h2>
                   <p className="text-gray-600 mt-1">משרה פעילה</p>
                 </div>
               </div>
@@ -293,27 +360,8 @@
                   <div className="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                       <div>
-                        <h4 className="font-bold text-gray-800 mb-1">תיאור הארגון:</h4>
-                        <p className="text-gray-600">חברה בינונית בתחום השירותים.</p>
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-800 mb-1">מטרת התפקיד:</h4>
-                        <p className="text-gray-600">ניהול תהליכי גיוס מקצה לקצה, עבודה מול מנהלים מגייסים ומועמדים.</p>
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-800 mb-1">דרישות חובה:</h4>
-                        <ul className="list-disc list-inside text-gray-600 space-y-0.5">
-                          <li>ניסיון בגיוס עובדים</li>
-                          <li>יכולת עבודה מול מנהלים</li>
-                          <li>סדר ויכולת מעקב</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-800 mb-1">דרישות יתרון:</h4>
-                        <ul className="list-disc list-inside text-gray-600 space-y-0.5">
-                          <li>ניסיון במערכת ATS</li>
-                          <li>ניסיון בגיוסי מאסה</li>
-                        </ul>
+                        <h4 className="font-bold text-gray-800 mb-1">הערה להדגמה:</h4>
+                        <p className="text-gray-600">זהו אב-טיפוס. דף זה מציג את תרחיש המועמד הראשי שלנו (עבור דניאל כהן). במערכת אמיתית, פרטים אלו ישתנו בהתאם למשרה שעליה לחצת בדשבורד.</p>
                       </div>
                     </div>
                   </div>
@@ -366,7 +414,7 @@
                       <tr>
                         <td colSpan="4" className="py-8 text-center text-gray-500">
                           <div className="font-bold text-emerald-700 mb-2">✅ המשרה פעילה ונמצאת באוויר!</div>
-                          כרגע אין מועמדים חדשים. כדי להמשיך בהדגמה, חזור לדשבורד, לחץ על "הקמת משרה חדשה" ודמה כניסת מועמד שממלא שאלון.
+                          כרגע אין מועמדים חדשים. כדי להמשיך בהדגמה, חזור לדשבורד, לחץ על "הקמת משרה חדשה" ודמה כניסת מועמד.
                         </td>
                       </tr>
                     )}
@@ -384,7 +432,6 @@
               </button>
 
               <div className="bg-[#fffdf0] rounded-xl shadow-lg border border-[#e8e4c9] overflow-hidden relative">
-                {/* קו עליון עיצובי כמו פנקס */}
                 <div className="h-4 bg-[#e8e4c9] w-full flex space-x-4 space-x-reverse px-4 pt-1">
                    <div className="w-2 h-2 rounded-full bg-white opacity-50"></div>
                    <div className="w-2 h-2 rounded-full bg-white opacity-50"></div>
@@ -400,7 +447,7 @@
                         <i className="fas fa-file-alt text-emerald-700"></i>
                         פתקית ראיון טלפוני (AI)
                       </h2>
-                      <p className="text-gray-600 mt-1 font-medium">מועמד: דניאל כהן | משרה: רכז/ת גיוס</p>
+                      <p className="text-gray-600 mt-1 font-medium">מועמד: דניאל כהן</p>
                     </div>
                     <div className="flex flex-col gap-2 items-end">
                       <div className="bg-amber-100 text-amber-800 text-xs px-3 py-1 rounded-full font-bold flex items-center gap-1 border border-amber-200">
@@ -413,12 +460,11 @@
                   </div>
 
                   <div className="space-y-6 text-gray-800">
-                    
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       <section className="md:col-span-2">
                         <h3 className="font-bold text-lg mb-2 text-emerald-900 border-b-2 border-emerald-200 inline-block">תקציר מועמד:</h3>
                         <p className="leading-relaxed bg-white/50 p-3 rounded border border-white text-sm">
-                          המועמד עבר סינון ראשוני לתפקיד רכז גיוס ומציג ניסיון קודם בעבודה מול מועמדים ומנהלים. יש לבדוק לעומק את היקף האחריות בפועל, עצמאות בתהליכי גיוס ויכולת עבודה תחת עומס.
+                          המועמד עבר סינון ראשוני ומציג פוטנציאל גבוה, אך יש לבדוק לעומק את היקף האחריות בפועל ויכולת עבודה תחת עומס.
                         </p>
                       </section>
 
@@ -428,7 +474,6 @@
                         </h3>
                         <p className="text-sm text-indigo-800">
                           על בסיס השאלון: תקשורת <span className="font-bold">עניינית, מאורגנת וישירה</span>. 
-                          <br/><span className="text-xs opacity-80 mt-1 block">💡 טיפ לראיון: כדאי לגשת ישר ולעניין, פחות "סמול טוק", ולהתמקד בשאלות של תהליכים ושיטות עבודה.</span>
                         </p>
                       </section>
                     </div>
@@ -440,9 +485,8 @@
                         </h3>
                         <ul className="list-disc list-inside space-y-1.5 text-sm marker:text-emerald-600">
                           <li>זמינות לתחילת עבודה</li>
-                          <li>ציפיות שכר (8.5-9K)</li>
-                          <li>ניסיון בגיוס מקצה לקצה</li>
-                          <li>עבודה מול מנהלים מגייסים</li>
+                          <li>ציפיות שכר מול הגדרות המשרה</li>
+                          <li>ניסיון מקצועי רלוונטי</li>
                           <li>פערים בין קורות החיים לתשובות בשאלון</li>
                         </ul>
                       </section>
@@ -453,8 +497,8 @@
                             <i className="fas fa-check-circle"></i> דגלים ירוקים:
                           </h3>
                           <ul className="list-disc list-inside space-y-1 text-sm text-green-900">
-                            <li>ניסיון רלוונטי ראשוני בגיוס</li>
-                            <li>הפגנת מוטיבציה גבוהה לעולם משאבי האנוש בשאלון</li>
+                            <li>ניסיון רלוונטי ראשוני</li>
+                            <li>הפגנת מוטיבציה גבוהה בשאלון</li>
                           </ul>
                         </section>
                         
@@ -464,67 +508,23 @@
                           </h3>
                           <ul className="list-disc list-inside space-y-1 text-sm text-red-900">
                             <li>חסר מידע על עומק הניסיון בפועל</li>
-                            <li>אין נתונים מספריים על היקף גיוסים שנוהלו</li>
                           </ul>
                         </section>
                       </div>
                     </div>
 
-                    <section className="bg-orange-50/70 p-4 rounded-lg border border-orange-200 shadow-sm">
-                      <h3 className="font-bold text-orange-900 flex items-center gap-2 mb-2 text-sm">
-                        <i className="fas fa-bullseye text-orange-600"></i> Smart Pitch (איך כדאי לשווק למועמד את התפקיד?):
-                      </h3>
-                      <p className="text-sm text-orange-800 leading-relaxed">
-                        המועמד ציין רצון להתפתח בעבודה מול מנהלים. במהלך השיחה, <strong>מומלץ להדגיש את רמת העצמאות בתפקיד אצלנו ואת העבודה הישירה מול דרגי ניהול בכירים</strong>. זה יגביר משמעותית את המוטיבציה שלו להמשיך בתהליך.
-                      </p>
-                    </section>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <section className="bg-white/80 p-5 rounded-lg border border-[#e8e4c9] shadow-sm">
-                        <h3 className="font-bold text-lg mb-3 text-emerald-900 flex items-center gap-2">
-                          <i className="fas fa-phone-alt text-emerald-600"></i> שאלות מומלצות לשיחה:
-                        </h3>
-                        <div className="space-y-3 text-sm">
-                          <p className="flex items-start gap-2"><span className="font-bold text-emerald-700 min-w-[1.5rem]">1.</span> תאר תהליך גיוס מלא שניהלת מתחילת פתיחת המשרה ועד קליטת העובד.</p>
-                          <p className="flex items-start gap-2"><span className="font-bold text-emerald-700 min-w-[1.5rem]">2.</span> איך התמודדת עם מנהל מגייס ששינה דרישות באמצע תהליך?</p>
-                          <p className="flex items-start gap-2"><span className="font-bold text-emerald-700 min-w-[1.5rem]">3.</span> כמה מועמדים ניהלת במקביל בתקופה עמוסה?</p>
-                          <p className="flex items-start gap-2"><span className="font-bold text-emerald-700 min-w-[1.5rem]">4.</span> בקורות החיים מופיע ניסיון בגיוס, אבל לא ברור אם ניהלת תהליך עצמאי. תוכל לפרט?</p>
-                        </div>
-                      </section>
-
-                      <section className="bg-cyan-50/60 p-5 rounded-lg border border-cyan-200 shadow-sm flex flex-col justify-center">
-                        <h3 className="font-bold text-cyan-900 flex items-center gap-2 mb-3 text-sm">
-                          <i className="fas fa-bolt text-cyan-600"></i> סימולציית ראיון מהירה (Role-Play):
-                        </h3>
-                        <div className="bg-white p-3 rounded border border-cyan-100 text-sm italic text-gray-700">
-                          "דניאל, בוא נדמיין סיטואציה: מנהל פרויקטים לוחץ עליך לגייס איש צוות תוך שבוע, אבל במאגר אין אף מועמד מתאים. מה הצעד הראשון שאתה עושה ברגע שניתקת איתו את הטלפון?"
-                        </div>
-                        <p className="text-xs text-cyan-700 mt-2 font-medium">המטרה: לבחון חשיבה יצירתית מחוץ לקופסא ועמידה בלחץ של מנהלים.</p>
-                      </section>
-                    </div>
-
                     <div className="border-t border-[#e8e4c9] pt-6 mt-4">
                       <h3 className="font-bold text-gray-700 mb-3 text-sm flex items-center gap-2">
-                        <i className="fas fa-envelope"></i> פעולות המשך אוטומטיות לסיכום השיחה:
+                        <i className="fas fa-envelope"></i> פעולות המשך אוטומטיות:
                       </h3>
                       <div className="flex flex-wrap gap-3">
                         <button className="bg-emerald-100 hover:bg-emerald-200 text-emerald-800 px-4 py-2 rounded-md text-sm font-medium transition-colors border border-emerald-200">
-                          ✨ נסח דוא"ל זימון לראיון פרונטלי
+                          ✨ נסח דוא"ל זימון
                         </button>
                         <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-md text-sm font-medium transition-colors border border-gray-200">
-                          ✨ נסח דוא"ל דחייה מנומס
-                        </button>
-                        <button className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-md text-sm font-medium transition-colors border border-indigo-200">
-                          📝 סכם שיחה לתוך ה-ATS
+                          📝 סכם שיחה למערכת
                         </button>
                       </div>
-                    </div>
-
-                    <div className="mt-8 bg-gray-100 p-3 rounded-lg text-xs text-gray-500 border border-gray-200 flex items-start gap-2">
-                      <i className="fas fa-exclamation-triangle flex-shrink-0 mt-0.5"></i>
-                      <p>
-                        <strong>הערת בקרה אנושית:</strong> המערכת אינה מקבלת החלטת גיוס ואינה פוסלת מועמדים. הפלט מיועד לסייע לרכז הגיוס לנהל ראיון טלפוני ממוקד יותר. ההחלטה הסופית נשארת תמיד אצל האדם.
-                      </p>
                     </div>
 
                   </div>
@@ -545,7 +545,6 @@
           );
         }
 
-        // טעינת האפליקציה למסך
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
