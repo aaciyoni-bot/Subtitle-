@@ -52,7 +52,7 @@
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                {/* כרטיס משרה 1 - משרת הדמו המקורית */}
+                {/* כרטיס משרה 1 - רכז/ת גיוס */}
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
                   <div className="h-2 bg-emerald-800 w-full"></div>
                   <div className="p-5">
@@ -95,7 +95,7 @@
 
                 {/* כרטיס משרה 2 - מנהל אזור אבטחה */}
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
-                  <div className="h-2 bg-blue-600 w-full"></div>
+                  <div className="h-2 bg-emerald-800 w-full"></div>
                   <div className="p-5">
                     <div className="flex justify-between items-start mb-4">
                       <div>
@@ -118,13 +118,13 @@
                         <span className="text-gray-600 flex items-center gap-2">
                           <i className="fas fa-money-bill-wave"></i> שכר ותנאים:
                         </span>
-                        <span className="text-gray-800 text-xs">10,000 ₪ + רכב צמוד</span>
+                        <span className="font-bold text-gray-800">10,000 ₪ + רכב</span>
                       </div>
                     </div>
 
                     <button 
                       onClick={() => navigate('jobCandidates')}
-                      className="w-full border border-gray-300 text-gray-600 hover:bg-gray-50 py-2 rounded-lg font-medium transition-colors"
+                      className="w-full border border-emerald-800 text-emerald-800 hover:bg-emerald-50 py-2 rounded-lg font-medium transition-colors"
                     >
                       כניסה למשרה
                     </button>
@@ -133,7 +133,7 @@
 
                 {/* כרטיס משרה 3 - בק אופיס נכסים */}
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
-                  <div className="h-2 bg-indigo-500 w-full"></div>
+                  <div className="h-2 bg-emerald-800 w-full"></div>
                   <div className="p-5">
                     <div className="flex justify-between items-start mb-4">
                       <div>
@@ -156,20 +156,20 @@
                         <span className="text-gray-600 flex items-center gap-2">
                           <i className="fas fa-money-bill-wave"></i> שכר מוצע:
                         </span>
-                        <span className="text-gray-800 text-xs">9,000 ₪</span>
+                        <span className="font-bold text-gray-800">9,000 ₪</span>
                       </div>
                     </div>
 
                     <button 
                       onClick={() => navigate('jobCandidates')}
-                      className="w-full border border-gray-300 text-gray-600 hover:bg-gray-50 py-2 rounded-lg font-medium transition-colors"
+                      className="w-full border border-emerald-800 text-emerald-800 hover:bg-emerald-50 py-2 rounded-lg font-medium transition-colors"
                     >
                       כניסה למשרה
                     </button>
                   </div>
                 </div>
 
-                {/* כרטיס משרה 4 - מושעית (בשביל הגיוון ויזואלית) */}
+                {/* כרטיס משרה 4 - מוקפאת */}
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow opacity-60">
                   <div className="h-2 bg-gray-400 w-full"></div>
                   <div className="p-5">
@@ -312,241 +312,4 @@
               <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i className="fas fa-check-circle text-5xl text-green-600"></i>
               </div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-3">תודה רבה על הזמן שלך!</h2>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                הפרטים והשאלון הועברו בהצלחה לרכז הגיוס.<br/>
-                במידה ותימצא התאמה להמשך התהליך, ניצור איתך קשר.
-              </p>
-              
-              <div className="border-t pt-6 mt-6">
-                <button 
-                  onClick={() => navigate('dashboard')}
-                  className="text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-6 py-2 rounded-lg font-medium transition-colors text-sm"
-                >
-                  חזרה למסך מגייס
-                </button>
-              </div>
-            </div>
-          );
-
-          // --- מסך 5: רשימת מועמדים למשרה ---
-          const renderJobCandidates = () => (
-            <div className="max-w-4xl mx-auto mt-8 p-6">
-              <button onClick={() => navigate('dashboard')} className="text-gray-500 hover:text-emerald-800 flex items-center gap-2 mb-6 text-sm">
-                <i className="fas fa-arrow-right"></i> חזרה לדשבורד
-              </button>
-
-              <div className="flex justify-between items-center mb-6">
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-800">ניהול מועמדים למשרה</h2>
-                  <p className="text-gray-600 mt-1">משרה פעילה</p>
-                </div>
-              </div>
-
-              {/* תצוגת פרטי המשרה */}
-              <div className="bg-white rounded-xl shadow-sm border border-gray-200 mb-6 overflow-hidden">
-                <button 
-                  onClick={() => setShowJobDetails(!showJobDetails)}
-                  className="w-full px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition-colors"
-                >
-                  <div className="flex items-center gap-3 font-bold text-gray-700">
-                    <i className="fas fa-briefcase text-emerald-600"></i>
-                    פרטי המשרה (דרישות והגדרות)
-                  </div>
-                  <i className={`fas fa-chevron-down text-gray-500 transition-transform ${showJobDetails ? 'rotate-180' : ''}`}></i>
-                </button>
-                
-                {showJobDetails && (
-                  <div className="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-                      <div>
-                        <h4 className="font-bold text-gray-800 mb-1">הערה להדגמה:</h4>
-                        <p className="text-gray-600">זהו אב-טיפוס. דף זה מציג את תרחיש המועמד הראשי שלנו (עבור דניאל כהן). במערכת אמיתית, פרטים אלו ישתנו בהתאם למשרה שעליה לחצת בדשבורד.</p>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {candidateCompleted && (
-                <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mb-6 flex items-start gap-3">
-                  <i className="fas fa-bell text-emerald-600 mt-1"></i>
-                  <div>
-                    <h4 className="font-bold text-emerald-900">התראה: מועמד חדש השלים שאלון</h4>
-                    <p className="text-sm text-emerald-800 mt-1">המערכת מוכנה להפיק פתקית ראיון טלפוני עבור דניאל כהן.</p>
-                  </div>
-                </div>
-              )}
-
-              <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                <table className="w-full text-right">
-                  <thead className="bg-gray-50 border-b border-gray-200">
-                    <tr>
-                      <th className="py-3 px-4 font-medium text-gray-600">שם מועמד</th>
-                      <th className="py-3 px-4 font-medium text-gray-600">סטטוס</th>
-                      <th className="py-3 px-4 font-medium text-gray-600">קורות חיים</th>
-                      <th className="py-3 px-4 font-medium text-gray-600">פעולה</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {candidateCompleted ? (
-                      <tr className="border-b border-gray-100 hover:bg-gray-50">
-                        <td className="py-4 px-4 font-bold text-gray-800">דניאל כהן</td>
-                        <td className="py-4 px-4">
-                          <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">
-                            השלים שאלון
-                          </span>
-                        </td>
-                        <td className="py-4 px-4 text-gray-600 text-sm flex items-center gap-2">
-                          <i className="fas fa-file-alt text-emerald-600"></i> התקבלו
-                        </td>
-                        <td className="py-4 px-4">
-                          <button 
-                            onClick={() => navigate('stickyNote')}
-                            className="bg-emerald-800 hover:bg-emerald-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 shadow-sm"
-                          >
-                            <i className="fas fa-magic"></i>
-                            הפק פתקית ראיון
-                          </button>
-                        </td>
-                      </tr>
-                    ) : (
-                      <tr>
-                        <td colSpan="4" className="py-8 text-center text-gray-500">
-                          <div className="font-bold text-emerald-700 mb-2">✅ המשרה פעילה ונמצאת באוויר!</div>
-                          כרגע אין מועמדים חדשים. כדי להמשיך בהדגמה, חזור לדשבורד, לחץ על "הקמת משרה חדשה" ודמה כניסת מועמד.
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          );
-
-          // --- מסך 6: פתקית ראיון טלפוני (התוצר המרכזי) ---
-          const renderStickyNote = () => (
-            <div className="max-w-4xl mx-auto mt-8 p-6 mb-12">
-              <button onClick={() => navigate('jobCandidates')} className="text-gray-500 hover:text-emerald-800 flex items-center gap-2 mb-6 text-sm">
-                <i className="fas fa-arrow-right"></i> חזרה לרשימת מועמדים
-              </button>
-
-              <div className="bg-[#fffdf0] rounded-xl shadow-lg border border-[#e8e4c9] overflow-hidden relative">
-                <div className="h-4 bg-[#e8e4c9] w-full flex space-x-4 space-x-reverse px-4 pt-1">
-                   <div className="w-2 h-2 rounded-full bg-white opacity-50"></div>
-                   <div className="w-2 h-2 rounded-full bg-white opacity-50"></div>
-                   <div className="w-2 h-2 rounded-full bg-white opacity-50"></div>
-                   <div className="w-2 h-2 rounded-full bg-white opacity-50"></div>
-                   <div className="w-2 h-2 rounded-full bg-white opacity-50"></div>
-                </div>
-
-                <div className="p-8">
-                  <div className="flex justify-between items-start mb-6 border-b border-[#e8e4c9] pb-4">
-                    <div>
-                      <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-3">
-                        <i className="fas fa-file-alt text-emerald-700"></i>
-                        פתקית ראיון טלפוני (AI)
-                      </h2>
-                      <p className="text-gray-600 mt-1 font-medium">מועמד: דניאל כהן</p>
-                    </div>
-                    <div className="flex flex-col gap-2 items-end">
-                      <div className="bg-amber-100 text-amber-800 text-xs px-3 py-1 rounded-full font-bold flex items-center gap-1 border border-amber-200">
-                        <i className="fas fa-magic"></i> הופק ע"י מנוע AI
-                      </div>
-                      <div className="bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-full flex items-center gap-1 border border-blue-200" title="פלט זה נוקה מהטיות אפשריות">
-                        <i className="fas fa-shield-alt"></i> נבדק ונמצא נקי מהטיות (Bias-Free)
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6 text-gray-800">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <section className="md:col-span-2">
-                        <h3 className="font-bold text-lg mb-2 text-emerald-900 border-b-2 border-emerald-200 inline-block">תקציר מועמד:</h3>
-                        <p className="leading-relaxed bg-white/50 p-3 rounded border border-white text-sm">
-                          המועמד עבר סינון ראשוני ומציג פוטנציאל גבוה, אך יש לבדוק לעומק את היקף האחריות בפועל ויכולת עבודה תחת עומס.
-                        </p>
-                      </section>
-
-                      <section className="bg-indigo-50/50 p-3 rounded-lg border border-indigo-100 shadow-sm">
-                        <h3 className="font-bold text-indigo-900 flex items-center gap-2 mb-2 text-sm">
-                          <i className="fas fa-brain text-indigo-600"></i> סגנון תקשורת משוער:
-                        </h3>
-                        <p className="text-sm text-indigo-800">
-                          על בסיס השאלון: תקשורת <span className="font-bold">עניינית, מאורגנת וישירה</span>. 
-                        </p>
-                      </section>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <section className="bg-white/60 p-4 rounded-lg border border-[#e8e4c9]">
-                        <h3 className="font-bold text-lg mb-3 text-emerald-900 flex items-center gap-2">
-                          <i className="fas fa-exclamation-triangle text-amber-500"></i> נקודות לבדיקה בטלפון:
-                        </h3>
-                        <ul className="list-disc list-inside space-y-1.5 text-sm marker:text-emerald-600">
-                          <li>זמינות לתחילת עבודה</li>
-                          <li>ציפיות שכר מול הגדרות המשרה</li>
-                          <li>ניסיון מקצועי רלוונטי</li>
-                          <li>פערים בין קורות החיים לתשובות בשאלון</li>
-                        </ul>
-                      </section>
-
-                      <div className="space-y-4">
-                        <section className="bg-green-50/80 p-3 rounded-lg border border-green-200">
-                          <h3 className="font-bold text-green-800 flex items-center gap-2 mb-2 text-sm">
-                            <i className="fas fa-check-circle"></i> דגלים ירוקים:
-                          </h3>
-                          <ul className="list-disc list-inside space-y-1 text-sm text-green-900">
-                            <li>ניסיון רלוונטי ראשוני</li>
-                            <li>הפגנת מוטיבציה גבוהה בשאלון</li>
-                          </ul>
-                        </section>
-                        
-                        <section className="bg-red-50/80 p-3 rounded-lg border border-red-200">
-                          <h3 className="font-bold text-red-800 flex items-center gap-2 mb-2 text-sm">
-                            <i className="fas fa-exclamation-triangle"></i> נקודות זהירות:
-                          </h3>
-                          <ul className="list-disc list-inside space-y-1 text-sm text-red-900">
-                            <li>חסר מידע על עומק הניסיון בפועל</li>
-                          </ul>
-                        </section>
-                      </div>
-                    </div>
-
-                    <div className="border-t border-[#e8e4c9] pt-6 mt-4">
-                      <h3 className="font-bold text-gray-700 mb-3 text-sm flex items-center gap-2">
-                        <i className="fas fa-envelope"></i> פעולות המשך אוטומטיות:
-                      </h3>
-                      <div className="flex flex-wrap gap-3">
-                        <button className="bg-emerald-100 hover:bg-emerald-200 text-emerald-800 px-4 py-2 rounded-md text-sm font-medium transition-colors border border-emerald-200">
-                          ✨ נסח דוא"ל זימון
-                        </button>
-                        <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-md text-sm font-medium transition-colors border border-gray-200">
-                          📝 סכם שיחה למערכת
-                        </button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-
-          return (
-            <div dir="rtl" className="min-h-screen bg-slate-50 font-sans font-normal pb-10">
-              {currentScreen === 'dashboard' && renderDashboard()}
-              {currentScreen === 'createJob' && renderCreateJob()}
-              {currentScreen === 'candidateForm' && renderCandidateForm()}
-              {currentScreen === 'thankYou' && renderThankYou()}
-              {currentScreen === 'jobCandidates' && renderJobCandidates()}
-              {currentScreen === 'stickyNote' && renderStickyNote()}
-            </div>
-          );
-        }
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
-</body>
-</html>
+              <h2 className="text-2xl font-bold text-gray-800 mb-3">תודה רבה על הזמן
